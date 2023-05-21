@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} Attendance {% endblock title %}
+{% block jumbotron %} Attendance of IT32S2 {% endblock jumbotron %}
+
+{% block content %}
+<div class="container">
+    <h1>Attendance</h1>
+    <form method="post" action="uploadattendance/">
+        {% csrf_token %}
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+                <thead style="text-align: center;">
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Student Section</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr style="vertical-align: middle;">
+                        <td style="text-align: center;">{{ student.studentnumber }}</td>
+                        <td>{{ student.name }}</td>
+                        <td style="text-align: center;">{{ student.section }}</td>
+                        <td style="text-align: center;">
+                            <div class="form-check">
+                                {{ form.attendanceform.status }}
+                                
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button type="submit" class="btn btn-success btn-lg">Upload Attendance</button>
+    </form>
+    
+</div>
+{% endblock content %}
