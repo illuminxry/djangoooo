@@ -4,7 +4,7 @@ from crudapp.models import Student, Attendance
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['name', 'section', 'department','age','gender','address', 'studentnumber']
+        fields = ['name', 'section', 'department','age','gender','address', 'studentnumber','profile_picture']
         widgets = { 'name': forms.TextInput(attrs={ 'class': 'form-control' }), 
             'section': forms.TextInput(attrs={ 'class': 'form-control' }),
             'department': forms.TextInput(attrs={ 'class': 'form-control' }),
@@ -12,6 +12,7 @@ class StudentForm(forms.ModelForm):
             'gender': forms.TextInput(attrs={ 'class': 'form-control' }),
             'address': forms.TextInput(attrs={ 'class': 'form-control' }),
             'studentnumber': forms.TextInput(attrs={ 'class': 'form-control' }),
+            'profile_picture': forms.ClearableFileInput(attrs={'class': 'form-control-file'})
       }
 
 # class AttendanceForm(forms.Form):
@@ -27,13 +28,19 @@ class StudentForm(forms.ModelForm):
 #             self.students = students
         
 
-class AttendanceForm(forms.ModelForm):
-    status = forms.ChoiceField(widget=forms.RadioSelect, choices=Attendance.ATTENDANCE_CHOICES)
+# class AttendanceForm(forms.Form):
+#     students = forms.ModelChoiceField(queryset=Student.objects.all())
+#     status_choices = [
+#         ('Present', 'Present'),
+#         ('Late', 'Late'),
+#         ('Absent', 'Absent'),
+#     ]
+#     status = forms.ChoiceField(choices=status_choices)
 
+class AttendanceForm(forms.ModelForm):
     class Meta:
         model = Attendance
-        fields = ['status', 'student']
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['student'].widget.attrs['disabled'] = True
+        fields = ['status']
+        widgets = {
+            'status': forms.Select(attrs={'class': 'form-control'}),
+        }

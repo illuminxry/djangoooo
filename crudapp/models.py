@@ -10,24 +10,20 @@ class Student(models.Model):
     age = models.TextField(max_length=20, default='')
     gender = models.TextField(max_length=20, default='')
     address = models.TextField(max_length=100, default='')
-
+    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
 
     def __str__(self):
         return self.name
     
     
 class Attendance(models.Model):
-    ATTENDANCE_CHOICES = [
-        ('present', 'Present'),
-        ('late', 'Late'),
-        ('absent', 'Absent'),
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    status_choices = [
+        ('Present', 'Present'),
+        ('Late', 'Late'),
+        ('Absent', 'Absent'),
     ]
-
-    status = models.CharField(max_length=10, choices=ATTENDANCE_CHOICES, default='')
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, default='')
-
-    def __str__(self):
-        return f"{self.student.name} - {self.status}"
+    status = models.CharField(choices=status_choices, max_length=10)
 
 
     

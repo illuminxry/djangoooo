@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from crudapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +29,6 @@ urlpatterns = [
     path('userinfo',views.userinfo,name='userinfo'),
     path('attendance',views.attendance,name='attendance'),
     path('view/<int:id>',views.view,name='view'),
-    path('uploadattendance/', views.upload_attendance, name='upload-attendance'), 
+    path('uploadattendance/', views.upload_attendance, name='upload_attendance')
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

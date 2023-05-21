@@ -1,7 +1,17 @@
 {% extends "base.html" %}
   
 {% block title %}View Student Record{% endblock title %}
-  
+{% block head %} 
+    <style>
+        .rounded-image {
+            width: 240px;
+            height: 240px;
+            border-radius: 60%;
+            border: 2px solid black;
+            
+        }
+    </style>
+{% endblock head%}
 {% block jumbotron %} Viewing Student Record of {{ student.name }} {% endblock jumbotron %}
 {% block content %}
 <div class="col-md-12">
@@ -11,10 +21,10 @@
         <div class="col-12">  
             <h3>Details</h3>  
         </div> 
-        <!-- <div class="mb-3"> 
-            <label>Student ID:</label>  
-            <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ student.id }}" disabled/>    
-        </div>  -->
+        <div class="mb-3"> 
+            <label>Student Picture:</label>  
+            <img src="{{ student.profile_picture.url }}" alt="" class="rounded-image" />    
+        </div> 
         <div class="mb-3"> 
             <label>Name:</label>  
             <input type="text" class="form-control" name="name" id="id_name" required maxlength="100" value="{{ student.name }}" disabled/>  
