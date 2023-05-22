@@ -46,12 +46,21 @@
     <form method="post" action="uploadattendance/">
         {% csrf_token %}
         <div class="table-responsive">
+            <!-- <div>
+                <label for="">Attendance Date</label>
+                <input type="date" name="date" id="">
+            </div> -->
             <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
                 <thead style="text-align: center;">
-                    <tr>
+                    <tr style="vertical-align: center;">
+                        <th hidden></th>
                         <th>Student ID</th>
                         <th>Student Name</th>
                         <th>Student Section</th>
+                        <th>Subjects</th>
+                        <th>Discussion Type</th>
+                        <th>Room</th>
+                        <td>Date</td>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -59,11 +68,42 @@
                 <tbody>
                     {% for student in students %}
                     <tr style="vertical-align: middle;">
+                        <td hidden> <input type="text" name="studentnumber" id="" value="{{ student.studentnumber }}"></td>
                         <td style="text-align: center;">{{ student.studentnumber }}</td>
                         <td>{{ student.name }}</td>
                         <td style="text-align: center;">{{ student.section }}</td>
+                        <td>
+                            <select name="subjects" id="">
+                                <option value="" selected disabled>Choose</option>
+                                <option value="CIT511">CIT511</option>
+                                <option value="CBS402A">CBS402A</option>
+                                <option value="GEE002B">GEE002B</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="discussion" id="">
+                                <option value="" selected disabled>Choose</option>
+                                <option value="Lecture">Lecture</option>
+                                <option value="Laboratory">Laboratory</option>
+                                <option value="Online">Online</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="room" id="">
+                                <option value="" selected disabled>Choose</option>
+                                <option value="205">205</option>
+                                <option value="206">206</option>
+                                <option value="213">213</option>
+                                <option value="222">222</option>
+                                <option value="318">318</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="date" name="date" id="">
+                        </td>
                         <td style="text-align: center;">
                             <select name="status" id="" class="form-control">
+                                <option value="" selected disabled>Choose</option>
                                 <option value="Present">Present</option>
                                 <option value="Late">Late</option>
                                 <option value="Absent">Absent</option>

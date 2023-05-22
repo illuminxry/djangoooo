@@ -29,6 +29,7 @@ urlpatterns = [
     path('userinfo',views.userinfo,name='userinfo'),
     path('attendance',views.attendance,name='attendance'),
     path('view/<int:id>',views.view,name='view'),
-    path('uploadattendance/', views.upload_attendance, name='upload_attendance')
+    path('uploadattendance/', views.upload_attendance, name='upload_attendance'),
+    path('displayattendance/', views.display_attendance, name='display_attendance'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

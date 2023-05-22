@@ -40,7 +40,8 @@ class StudentForm(forms.ModelForm):
 class AttendanceForm(forms.ModelForm):
     class Meta:
         model = Attendance
-        fields = ['status']
+        fields = ['status','date','subjects','discussion','room']
         widgets = {
             'status': forms.Select(attrs={'class': 'form-control'}),
+            # 'date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'YYYY-MM-DD'}),
         }

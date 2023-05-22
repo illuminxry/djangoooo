@@ -24,6 +24,10 @@ class Attendance(models.Model):
         ('Absent', 'Absent'),
     ]
     status = models.CharField(choices=status_choices, max_length=10)
+    subjects = models.CharField(max_length=10, default="CIT511")
+    discussion = models.CharField(max_length=10, default="Lecture")
+    room = models.CharField(max_length=10, default="206")
+    date = models.DateField(default='2023-01-01')
 
 
     
