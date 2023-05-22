@@ -9,41 +9,67 @@
 <div class="col-md-12">    
     <form method="POST" class="post-form" action="/create" enctype="multipart/form-data">  
     {% csrf_token %}  
+    <div class="p-5 bg-light">
+        <h1 class="mb-3">Insert Student Record</h1>
+        <!-- <h4 class="mb-3"></h4> -->
+    </div>
     <div class="container">  
-        <div class="col-12">  
-        <h3>Enter Details</h3>  
-        </div>    
-        <div class="mb-3"> 
+        
+        <div class="mb-3" style="padding-top: 40px;"> 
             <label>Student Number:</label>  
-            {{ form.studentnumber }}   
+            <!-- {{ form.studentnumber }}    -->
+            <input type="number" name="studentnumber" id="" min="1510000" class="form-control">
         </div>
         <div class="mb-3"> 
             <label>Name:</label>  
-            {{ form.name }}   
+            <!-- {{ form.name }}    -->
+            <input type="text" name="name" id="" class="form-control">
         </div> 
         <div class="mb-3">  
             <label>Section:</label>  
-            {{ form.section }}   
+            <!-- {{ form.section }}    -->
+            <select name="section" id="" class="form-control">
+                <option value="" selected disabled>Choose</option>
+                <option value="IT32S1">IT32S1</option>
+                <option value="IT32S2">IT32S2</option>
+                <option value="IT32S3">IT32S3</option>
+                <option value="IT32S4">IT32S4</option>
+            </select>
         </div>  
         <div class="mb-3"> 
             <label>Department:</label>  
-            {{ form.department }}   
+            <!-- {{ form.department }}    -->
+            <select name="department" id="" class="form-control">
+                <option value="" selected disabled>Choose</option>
+                <option value="CCS">CCS</option>
+                <option value="EMC">EMC</option>
+                <option value="IS">IS</option>
+                <option value="DS">DS</option>
+            </select>
         </div>
         <div class="mb-3"> 
             <label>Age:</label>  
-            {{ form.age }}   
+            <input type="number" name="age" id="" class="form-control" min="18">   
         </div>
         <div class="mb-3"> 
             <label>Gender:</label>  
-            {{ form.gender }}   
+            <!-- {{ form.gender }}    -->
+            <select name="gender" id="" class="form-control">
+                <option value="" selected disabled>Choose</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+            </select>
         </div>
         <div class="mb-3"> 
             <label>Address:</label>  
-            {{ form.address }}   
+            <!-- {{ form.address }}      -->
+            <input type="text" name="address" id="" class="form-control">
         </div>
         <div class="mb-3"> 
             <label>Profile Picture:</label>  
-            {{ form.profile_picture }}   
+            <!-- {{ form.profile_picture }}    -->
+            <input type="file" name="profile_picture" id="" class="form-control-file">
         </div>
         
 

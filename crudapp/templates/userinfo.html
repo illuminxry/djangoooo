@@ -1,135 +1,89 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <title>Developer Information</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-</head>
-
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-            data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarExample01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item active">
-                <a class="nav-link" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/userinfo">Developer Information</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/attendance">Student Attendance</a>
-              </li>
-              
-            </ul>
+{% block title %}User Info{% endblock title %}
+{% block content %}
+<header>
+<div class="container py-5">
+  <div class="row">
+      <div class="col-lg-4">
+          <div class="card mb-3">
+              <div class="card-body text-center">
+                  <h5 class="card-title mb-0">Christian Emmanuel A. Pastrana</h5>
+                  <div class="card-text text-muted">3rd Year Student</div>
+              </div>
           </div>
-        </div>
-      </nav>
-  </header>
-  <div class="container py-5">
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="card mb-3">
-                <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Christian Emmanuel A. Pastrana</h5>
-                    <div class="card-text text-muted">3rd Year Student</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title mb-4">Contact</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt fa-fw"></i>Location: San Mateo, Rizal</li>
-                        <li><i class="fas fa-phone fa-fw"></i> Phone: +63 945 859 1541</li>
-                        <li><i class="fas fa-envelope fa-fw"></i>Email: christianpastranaeduc@gmail.com</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-8">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title mb-4">Summary</h5>
-                    <p class="card-text" style="text-align: justify;">
-                        Christian Emmanuel A. Pastrana is an individual with a keen interest in system analysis and
-                        quality assurance. With a strong background in Object-Oriented Programming, Data Mining and
-                        Warehousing, Computer Networking, and Information Security, he possesses a comprehensive
-                        understanding of the intricacies involved in these domains.
-                    </p>
-                    <p class="card-text" style="text-align: justify;">
-                        Christian Emmanuel enjoys dedicating his free time to watching Formula 1, where he can
-                        appreciate the precision and technicality of the sport. He finds joy in observing the
-                        strategies, engineering marvels, and the speed-driven competition that defines Formula 1 racing.
-                    </p>
-                    <p class="card-text" style="text-align: justify;">
-                        With his expertise in analyzing systems, he brings a critical eye to ensuring their quality and
-                        functionality. Christian Emmanuel understands the importance of creating robust and efficient
-                        systems that meet the desired standards. Additionally, his knowledge of information security
-                        enables him to identify vulnerabilities and implement measures to protect systems and sensitive
-                        data.
-                    </p>
-                    <p class="card-text" style="text-align: justify;">
-                        Christian Emmanuel demonstrates a genuine enthusiasm for continuous learning and staying up to
-                        date with the latest advancements in technology. This passion, coupled with his analytical
-                        skills and dedication to quality, positions him as a valuable asset in any technological
-                        endeavor.
-                    </p>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h2>Education</h2>
-                    <hr />
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <h4>Bachelor of Science in Information Techonology</h4>
-                                <p class="text-muted">Technological Institute of the Philippines - Manila</p>
-                                <p class="text-muted">June 2019 - Present</p>
-                                <p>Relevant coursework:</p>
-                                <ul>
-                                    <li>Object Oriented Programming</li>
-                                    <li>Data Mining and Warehousing</li>
-                                    <li>Computer Networking</li>
-                                    <li>Information Security</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <h4>Senior High School Graduate</h4>
-                                <br>
-                                <p class="text-muted">Centro Escolar University - Manila</p>
-                                <p class="text-muted">June 2017 - April 2019</p>
-                                <p>Relevant coursework:</p>
-                                <ul>
-                                    <li>Computer Hardware and Software Servicing</li>
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title mb-4">Contact</h5>
+                  <ul class="list-unstyled">
+                      <li><i class="fas fa-map-marker-alt fa-fw"></i>Location: San Mateo, Rizal</li>
+                      <li><i class="fas fa-phone fa-fw"></i> Phone: +63 945 859 1541</li>
+                      <li><i class="fas fa-envelope fa-fw"></i>Email: christianpastranaeduc@gmail.com</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-8">
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title mb-4">Summary</h5>
+                  <p class="card-text" style="text-align: justify;">
+                      Christian Emmanuel A. Pastrana is an individual with a keen interest in system analysis and
+                      quality assurance. With a strong background in Object-Oriented Programming, Data Mining and
+                      Warehousing, Computer Networking, and Information Security, he possesses a comprehensive
+                      understanding of the intricacies involved in these domains.
+                  </p>
+                  <p class="card-text" style="text-align: justify;">
+                      Christian Emmanuel enjoys dedicating his free time to watching Formula 1, where he can
+                      appreciate the precision and technicality of the sport. He finds joy in observing the
+                      strategies, engineering marvels, and the speed-driven competition that defines Formula 1 racing.
+                  </p>
+                  <p class="card-text" style="text-align: justify;">
+                      With his expertise in analyzing systems, he brings a critical eye to ensuring their quality and
+                      functionality. Christian Emmanuel understands the importance of creating robust and efficient
+                      systems that meet the desired standards. Additionally, his knowledge of information security
+                      enables him to identify vulnerabilities and implement measures to protect systems and sensitive
+                      data.
+                  </p>
+                  <p class="card-text" style="text-align: justify;">
+                      Christian Emmanuel demonstrates a genuine enthusiasm for continuous learning and staying up to
+                      date with the latest advancements in technology. This passion, coupled with his analytical
+                      skills and dedication to quality, positions him as a valuable asset in any technological
+                      endeavor.
+                  </p>
+              </div>
+          </div>
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h2>Education</h2>
+                  <hr />
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <h4>Bachelor of Science in Information Techonology</h4>
+                              <p class="text-muted">Technological Institute of the Philippines - Manila</p>
+                              <p class="text-muted">June 2019 - Present</p>
+                              <p>Relevant coursework:</p>
+                              <ul>
+                                  <li>Object Oriented Programming</li>
+                                  <li>Data Mining and Warehousing</li>
+                                  <li>Computer Networking</li>
+                                  <li>Information Security</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <h4>Senior High School Graduate</h4>
+                              <br>
+                              <p class="text-muted">Centro Escolar University - Manila</p>
+                              <p class="text-muted">June 2017 - April 2019</p>
+                              <p>Relevant coursework:</p>
+                              <ul>
+                                  <li>Computer Hardware and Software Servicing</li>
 
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
-</body>
-
-</html>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+{% endblock content %}

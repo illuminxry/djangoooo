@@ -10,20 +10,38 @@ def index(request):
 
 def userinfo(request):
     return render(request,"userinfo.html")
-
-# def create(request):
-#     form = StudentForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         return redirect('/')
-#     return render(request,"create.html",{'form':form})
+    # form = StudentForm(request.POST, request.FILES)
+    # if form.is_valid():
+    #     form.save()
+    #     return redirect('/')
+    
 def create(request):
-    form = StudentForm(request.POST, request.FILES)
-    if form.is_valid():
-        form.save()
+
+    if request.method == 'POST':
+        studentnumber = request.POST.get('studentnumber')
+        name = request.POST.get('name')
+        section = request.POST.get('section')
+        department = request.POST.get('department')
+        age = request.POST.get('age')
+        gender = request.POST.get('gender')
+        address = request.POST.get('address')
+        profile_picture = request.FILES.get('profile_picture')
+        
+        student = Student(
+            studentnumber=studentnumber,
+            name=name,
+            section=section,
+            department=department,
+            age=age,
+            gender=gender,
+            address=address,
+            profile_picture=profile_picture
+        )
+        student.save()
+        
         return redirect('/')
-    context = {'form': form}
-    return render(request, 'create.html', context)
+    
+    return render(request, 'create.html')
 
 def view(request, id):  
     student = Student.objects.get(id=id)  
@@ -50,51 +68,6 @@ def attendance(request):
     students = Student.objects.all()
     return render(request,"attendance.html",{'students':students})  
 
-# def upload_attendance(request):
-#     if request.method == 'POST':
-#         form = AttendanceForm(request.POST)
-#         if form.is_valid():
-#             # date = form.cleaned_data['date']
-#             student = form.cleaned_data['students']
-#             status = form.cleaned_data['status']
-
-#             attendance = Attendance(student=student, status=status)
-#             attendance.save()
-
-#             return redirect('success')  # Replace 'success' with the appropriate URL name for a success page
-
-#     else:
-#         form = AttendanceForm()
-
-#     context = {'form': form}
-#     return render(request, 'attendance.html', context)
-
-# def upload_attendance(request):
-#     if request.method == 'POST':
-#         studentid = request.POST['studentnumber']
-#         status = request.POST['status']
-
-#         stud = Attendance(
-#             student = studentid,
-#             status = status
-#         )
-#         stud.save()
-#         return redirect("/")
-
-# def upload_attendance(request):
-#     if request.method == 'POST':
-#         studentid = request.POST['studentnumber']
-#         status = request.POST['status']
-
-#         student = Student.objects.get(studentnumber=studentid)  # Retrieve the student instance
-
-#         attendance = Attendance(
-#             student=student,  # Assign the student instance
-#             status=status
-#         )
-#         attendance.save()
-
-#         return redirect("/")
 def upload_attendance(request):
     if request.method == 'POST':
         student_ids = request.POST.getlist('studentnumber')

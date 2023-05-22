@@ -1,41 +1,49 @@
 {% extends "base.html" %}
 
-{% block title %}IT32S2 Student Attendance{% endblock title %}
+{% block title %}Attendance List{% endblock title %}
 
-{% block jumbotron %} Student Attendance {% endblock jumbotron %}
+
 {% block content %}
-<div class="container">
-      <div class="table-responsive">
-            <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
-                  <thead>
-                        <tr>
-                              <th>Student Number</th>
-                              <th>Name</th>
-                              <th>Section</th>
-                              <th>Subject Attended</th>
-                              <th>Discussion type</th>
-                              <th>Room</th>
-                              <th>Date of Attendance</th>
-                              <th>Status</th>
-                        </tr>
-                  </thead>
-                  <tbody>
-                        {% for attendance in attendance_data %}
-                        <tr>
-                              <td>{{ attendance.student.studentnumber }}</td>
-                              <td>{{ attendance.student.name }}</td>
-                              <td>{{ attendance.student.section }}</td>
-                              <td>{{ attendance.subjects }}</td>
-                              <td>{{ attendance.discussion }}</td>
-                              <td>{{ attendance.room }}</td>
-                              <td>{{ attendance.date }}</td>
-                              <td>{{ attendance.status }}</td>
-                        </tr>
-                        {% endfor %}
-                  </tbody>
-            </table>
+<div class="p-5 bg-light">
+      <h1 class="mb-3">Attendance List</h1>
+      <!-- <h4 class="mb-3"></h4> -->
+</div>
+<br>
+<div class="col-md-12">
+      <div class="container" style="border: 2px solid black; border-radius: 10px; padding: 10px; ">
+            <div class="table-responsive">
+                  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+                        <thead style="vertical-align: middle;">
+                              <tr>
+                                    <th>Student Number</th>
+                                    <th>Name</th>
+                                    <th>Section</th>
+                                    <th>Subject Attended</th>
+                                    <th>Discussion type</th>
+                                    <th>Room</th>
+                                    <th>Date of Attendance</th>
+                                    <th>Status</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              {% for attendance in attendance_data %}
+                              <tr>
+                                    <td style="vertical-align: middle;">{{ attendance.student.studentnumber }}</td>
+                                    <td style="vertical-align: middle;">{{ attendance.student.name }}</td>
+                                    <td style="vertical-align: middle;">{{ attendance.student.section }}</td>
+                                    <td style="vertical-align: middle;">{{ attendance.subjects }}</td>
+                                    <td style="vertical-align: middle;">{{ attendance.discussion }}</td>
+                                    <td style="vertical-align: middle;">{{ attendance.room }}</td>
+                                    <td style="vertical-align: middle;">{{ attendance.date }}</td>
+                                    <td style="vertical-align: middle;">{{ attendance.status }}</td>
+                              </tr>
+                              {% endfor %}
+                        </tbody>
+                  </table>
+            </div>
       </div>
 </div>
+
 
 
 {% endblock content %}
